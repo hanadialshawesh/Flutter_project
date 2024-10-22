@@ -1,125 +1,144 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/signup.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(SignInApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class SignInApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Sign-In',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SignInPage(),
+      home: SignInPage(),
     );
   }
 }
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
-
-  @override
-  _SignInPageState createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
-  // Text controllers for the text fields
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  // Sign in logic
-  void _signIn() {
-    final email = _emailController.text;
-    final password = _passwordController.text;
-
-    if (email.isNotEmpty && password.isNotEmpty) {
-      // Perform the sign-in action
-      print('Email: $email');
-      print('Password: $password');
-    } else {
-      // Display error message
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter both email and password')),
-      );
-    }
-  }
-
+class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign In'),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+      backgroundColor: Colors.white60,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // App title in Text with TextStyle
+              SizedBox(height: 80), // Spacing from top
               Text(
-                'Welcome to Sign-In',
+                'Welcome back',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24.0,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black87,
                 ),
               ),
-              const SizedBox(height: 50.0),
-
-              // Email input field inside Container
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50],
-                  borderRadius: BorderRadius.circular(10.0),
-                  border: Border.all(color: Colors.blue),
+              Text(
+                'Sign in to your account',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown[300],
                 ),
-                child: TextField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: InputBorder.none,
+              ),
+              SizedBox(height: 10),
+              // Email Field
+              TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.brown[100],
+                  hintText: 'Enter your email address',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              const SizedBox(height: 20.0),
-
-              // Password input field inside Container
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50],
-                  borderRadius: BorderRadius.circular(10.0),
-                  border: Border.all(color: Colors.blue),
-                ),
-                child: TextField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                    border: InputBorder.none,
+              SizedBox(height: 20),
+              // Password Field
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.brown[100],
+                  hintText: 'Enter your password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              const SizedBox(height: 30.0),
-
-              // Sign-in button inside a Row for alignment
+              SizedBox(height: 10),
+              // Forgot Password
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () {
+                    // Add forgot password logic
+                  },
+                  child: Text(
+                    'Forgot password?',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              // Sign in with Google Button
+              GestureDetector(
+                onTap: () {
+                  // Add Google sign-in logic here
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  decoration: BoxDecoration(
+                    color: Colors.brown[900],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.g_translate, color: Colors.white70),
+                      SizedBox(width: 10),
+                      Text(
+                        'Sign in with Google',
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              // New member? Sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: _signIn,
-                    child: const Text('Sign In'),
+                  Text(
+                    'New member?',
+                    style: TextStyle(color: Colors.black54),
+                  ),
+                  SizedBox(width: 5),
+                  GestureDetector(
+                    onTap: () {
+                      // Navigate to Sign-Up Page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpApp()),
+                      );
+                    },
+                    child: Text(
+                      'Sign up',
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ],
               ),
+              SizedBox(height: 50),
             ],
           ),
         ),
