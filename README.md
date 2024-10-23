@@ -1,3 +1,5 @@
+# A Flutter Application Project by Hanadi Alshawesh
+
 # lab2
 
 A new Flutter project.
