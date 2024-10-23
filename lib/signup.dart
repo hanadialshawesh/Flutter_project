@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/home.dart';
 
 void main() {
   runApp(SignUpApp());
@@ -25,7 +26,7 @@ class SignUpPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 80), // Spacing from top
+              SizedBox(height: 80),
               Text(
                 'Sign up',
                 style: TextStyle(
@@ -43,7 +44,6 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              // Name Field
               TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -56,7 +56,6 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Phone Field
               TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -69,7 +68,6 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Email Field
               TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -82,7 +80,6 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Password Field
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
@@ -96,17 +93,13 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Terms and conditions
               Text(
                 'By signing up, you agree with our terms of use',
                 style: TextStyle(color: Colors.grey),
               ),
               SizedBox(height: 20),
-              // Sign up with Google Button
               GestureDetector(
-                onTap: () {
-                  // Add Google sign-up logic here
-                },
+                onTap: () {},
                 child: Container(
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 15),
@@ -128,7 +121,6 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Already a member? Sign In
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -139,7 +131,6 @@ class SignUpPage extends StatelessWidget {
                   SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
-                      // Navigate to Sign-In Page
                       Navigator.pop(context);
                     },
                     child: Text(
@@ -148,6 +139,25 @@ class SignUpPage extends StatelessWidget {
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyHomePage(),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.home,
+                      color: Colors.brown[800],
+                      size: 50,
                     ),
                   ),
                 ],

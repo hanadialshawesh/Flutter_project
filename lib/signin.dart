@@ -26,7 +26,7 @@ class SignInPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 80), // Spacing from top
+              SizedBox(height: 80),
               Text(
                 'Welcome back',
                 style: TextStyle(
@@ -44,7 +44,6 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              // Email Field
               TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -57,7 +56,6 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Password Field
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
@@ -71,13 +69,10 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              // Forgot Password
               Align(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
-                  onTap: () {
-                    // Add forgot password logic
-                  },
+                  onTap: () {},
                   child: Text(
                     'Forgot password?',
                     style: TextStyle(color: Colors.grey),
@@ -85,11 +80,8 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // Sign in with Google Button
               GestureDetector(
-                onTap: () {
-                  // Add Google sign-in logic here
-                },
+                onTap: () {},
                 child: Container(
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 15),
@@ -111,7 +103,6 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              // New member? Sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -122,7 +113,6 @@ class SignInPage extends StatelessWidget {
                   SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
-                      // Navigate to Sign-Up Page
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => SignUpApp()),
