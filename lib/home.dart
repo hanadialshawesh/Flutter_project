@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/menu.dart'; // Ensure Cafe class is imported
+import 'package:lab2/room.dart'; // Ensure StudyRoom class is imported
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// The content of the home page remains in a separate widget
 class HomePageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -87,12 +88,6 @@ class HomePageContent extends StatelessWidget {
                 ),
                 SizedBox(width: 20),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NextPage()),
-                    );
-                  },
                   child: Text(
                     'to see More',
                     style: TextStyle(
@@ -141,18 +136,6 @@ class HomePageContent extends StatelessWidget {
   }
 }
 
-class NextPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Next Page')),
-      body: Center(
-        child: Text('Welcome to the Next Page!'),
-      ),
-    );
-  }
-}
-
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -164,17 +147,14 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pages = [
     HomePageContent(),
     Center(child: Text('Calendar Page', style: TextStyle(fontSize: 24))),
-    Center(child: Text('Menu Page', style: TextStyle(fontSize: 24))),
+    StudyRoom(), // Add StudyRoom page here
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: Colors.grey[200],
-      
       body: _pages[currentIndex],
-      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         currentIndex: currentIndex,
@@ -193,12 +173,16 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Event Calendar',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.meeting_room_rounded, color: Colors.brown[800]),
+            label: 'Room',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.menu, color: Colors.brown[800]),
             label: 'Menu',
           ),
         ],
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.brown,
+        unselectedItemColor: Colors.grey,
       ),
     );
   }
