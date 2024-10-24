@@ -1,24 +1,19 @@
-// ignore_for_file: deprecated_member_use, prefer_const_constructors, unused_import
-
+//ignore_for_file: deprecated_member_use,prefer_const_constructors,unused_import
 import 'package:flutter/material.dart';
-import 'package:lab2/signin.dart'; // Make sure to import your existing SignInPage file
+import 'package:lab2/signin.dart'; 
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
-      routes: {
-        'signup': (context) => SignupPage(), // Define the signup route
-      },
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: WelcomePage(),
+//       routes: {
+//         'signup': (context) => SignupPage(), // Define the signup route
+//       },
+//     );
+//   }
+// }
 
 // Welcome Page
 class WelcomePage extends StatelessWidget {

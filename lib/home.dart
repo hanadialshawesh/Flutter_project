@@ -1,7 +1,7 @@
+//ignore_for_file: deprecated_member_use,prefer_const_constructors,unused_import
 import 'package:flutter/material.dart';
 import 'package:lab2/menu.dart';
-import 'package:lab2/room.dart'; // Ensure StudyRoom class is imported
-import 'package:lab2/support.dart';
+import 'package:lab2/room.dart'; 
 import 'membership.dart';
 
 void main() {
