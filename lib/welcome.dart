@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:lab2/signin.dart'; // Make sure to import your existing SignInPage file
 
 void main() {
   runApp(MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Welcome Page
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,8 +30,7 @@ class WelcomePage extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.black,
           image: DecorationImage(
-            image: AssetImage(
-                "assets/images/bg.jpg"), // Ensure the correct asset path
+            image: AssetImage( "assets/images/bg.png"), // Ensure the correct asset path
             fit: BoxFit.cover,
             opacity: 0.6,
           ),
@@ -52,8 +53,11 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      // Navigate to signup page
-                      Navigator.pushNamed(context, 'signup');
+                      // Navigate to the SignInPage
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInPage()),
+                      );
                     },
                     child: Row(
                       children: const [
@@ -82,6 +86,7 @@ class WelcomePage extends StatelessWidget {
   }
 }
 
+// Signup Page (This remains the same)
 class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -90,7 +95,23 @@ class SignupPage extends StatelessWidget {
         title: Text('Signup'),
       ),
       body: Center(
-        child: Text('Signup Page'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Signup Page'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to SignInPage
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignInPage()),
+                );
+              },
+              child: Text('Already have an account? Sign in'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -80,7 +80,7 @@ class StudyRoom extends StatelessWidget {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(12)),
                     child: Image.asset(
-                      "assets/quiet_room.jpg",
+                      "assets/images/room2.png",
                       fit: BoxFit.cover,
                       height: 150,
                       width: double.infinity,
@@ -155,7 +155,7 @@ class StudyRoom extends StatelessWidget {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(12)),
                     child: Image.asset(
-                      "assets/meeting_room.jpg",
+                      "assets/images/PHOTO-2024-10-24-01-33-47 (3).png",
                       fit: BoxFit.cover,
                       height: 150,
                       width: double.infinity,
@@ -230,7 +230,7 @@ class StudyRoom extends StatelessWidget {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(12)),
                     child: Image.asset(
-                      "assets/public_space.jpg",
+                      "assets/images/room1.png",
                       fit: BoxFit.cover,
                       height: 150,
                       width: double.infinity,
@@ -304,7 +304,7 @@ class StudyRoom extends StatelessWidget {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(12)),
                     child: Image.asset(
-                      "assets/outdoor_study.jpg",
+                      "assets/images/room3.png",
                       fit: BoxFit.cover,
                       height: 150,
                       width: double.infinity,

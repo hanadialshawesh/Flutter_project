@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lab2/menu.dart'; // Ensure Cafe class is imported
+import 'package:lab2/menu.dart';
 import 'package:lab2/room.dart'; // Ensure StudyRoom class is imported
+import 'package:lab2/support.dart';
+import 'membership.dart';
 
 void main() {
   runApp(MyApp());
@@ -106,7 +108,7 @@ class HomePageContent extends StatelessWidget {
                 Column(
                   children: [
                     Image.asset('assets/images/room1.png',
-                        width: 130, height: 130),
+                        width: 140, height: 130),
                     SizedBox(height: 0),
                     Text('Public_space'),
                   ],
@@ -114,7 +116,7 @@ class HomePageContent extends StatelessWidget {
                 Column(
                   children: [
                     Image.asset('assets/images/room2.png',
-                        width: 130, height: 130),
+                        width: 150, height: 130),
                     SizedBox(height: 0),
                     Text('Quiet_room'),
                   ],
@@ -122,7 +124,7 @@ class HomePageContent extends StatelessWidget {
                 Column(
                   children: [
                     Image.asset('assets/images/room3.png',
-                        width: 130, height: 130),
+                        width: 140, height: 130),
                     SizedBox(height: 0),
                     Text('outdoor_study'),
                   ],
@@ -146,15 +148,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = [
     HomePageContent(),
-    Center(child: Text('Calendar Page', style: TextStyle(fontSize: 24))),
-    StudyRoom(), // Add StudyRoom page here
+    MembersShip(),
+    StudyRoom(), 
+    MenuCafe(),
+
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
+
       body: _pages[currentIndex],
+
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         currentIndex: currentIndex,
@@ -170,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today, color: Colors.brown[800]),
-            label: 'Event Calendar',
+            label: 'Membership',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.meeting_room_rounded, color: Colors.brown[800]),
